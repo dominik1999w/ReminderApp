@@ -7,9 +7,18 @@ import java.awt.*;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
+import java.util.List;
 import java.util.stream.*;
 
 public class ReminderFrame extends JFrame {
+    private FileManager fileManagerEng;
+    private FileManager fileManagerPol;
+
+    private String filePathEng = "D:\\Agnieszka\\Documents\\englishWords.txt"; // path to file with english words
+    private String filePathPol = "D:\\Agnieszka\\Documents\\polishWords.txt"; // path to file with polish translation
+
+    private List<String> listEng, listPol;
+
 
     private Cell[][] cells = new Cell[5][3];
 
@@ -20,6 +29,11 @@ public class ReminderFrame extends JFrame {
                 panel.add(cells[i][j] = new Cell());
         panel.setBorder(new LineBorder(Color.BLACK, 2));
         add(panel, BorderLayout.CENTER);
+
+        fileManagerEng = new FileManager(filePathEng);
+        fileManagerPol = new FileManager(filePathPol);
+        listEng = fileManagerEng.readFileInList();
+        listPol = fileManagerPol.readFileInList();
     }
 
     //CELL CLASS
@@ -41,6 +55,8 @@ public class ReminderFrame extends JFrame {
             stream.forEach(s -> contentBuilder.append(s).append("\n"));
             return contentBuilder.toString();
         }*/
+
+
     }
 
 }
