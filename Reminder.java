@@ -6,6 +6,7 @@ import java.awt.*;
 public class Reminder {
 
     public static void main(String[] arg) throws Exception {
+        new SoundClipTest();
         ReminderFrame reminderframe = new ReminderFrame();
         reminderframe.setTitle("REMINDER");
         reminderframe.setPreferredSize(new Dimension(800,700));
